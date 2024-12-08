@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Proyecto Web{% endblock %}</title>
+    <style>
+        ul {
+            list-style: none; 
+            margin-left: 0;   
+            padding-left: 0;  
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="/">Mi Proyecto Web</a></h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Inicio</a></li>
+            <li><a href="{% url 'crear_cancion' %}">Canciones</a></li>
+            <li><a href="{% url 'crear_artista' %}">Artistas</a></li>
+            <li><a href="{% url 'crear_album' %}">Álbumes</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

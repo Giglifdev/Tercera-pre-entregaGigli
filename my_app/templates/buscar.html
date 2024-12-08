@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar</title>
+    <style>
+        ul {
+            list-style: none; 
+            margin-left: 0;   
+            padding-left: 0;  
+        }
+    </style>
+</head>
+<body>
+    <h1>Buscar</h1>
+    
+    <form method="GET" action="{% url 'buscar' %}">
+        <input type="text" name="q" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if query %}
+        <h2>Resultados para "{{ query }}":</h2>
+        
+        <h3>Álbumes:</h3>
+        <ul>
+            {% for album in albums %}
+                <li>{{ album.titulo }}</li>
+            {% empty %}
+                <li>No se encontraron álbumes.</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Canciones:</h3>
+        <ul>
+            {% for cancion in canciones %}
+                <li>{{ cancion.titulo }}</li>
+            {% empty %}
+                <li>No se encontraron canciones.</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Artistas:</h3>
+        <ul>
+            {% for artista in artistas %}
+                <li>{{ artista.nombre }}</li>
+            {% empty %}
+                <li>No se encontraron artistas.</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      ul {
+          list-style: none; 
+          margin-left: 0;   
+          padding-left: 0;  
+      }
+  </style>
+</head>
+<body>
+  <h1>Crear Canción</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}  
+    <button type="submit">Guardar</button>
+  </form>
+{% endblock %}
+</body>
+</html>
